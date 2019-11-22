@@ -18,7 +18,7 @@ body {
   }
   
   .square {
-    background: #fff;
+    background: linear-gradient(rgb(47,150,163), rgb(48,62,143));
     border: 1px solid #999;
     float: left;
     font-size: 24px;
