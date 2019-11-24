@@ -19,7 +19,8 @@ function Square(props) {
       super()
       this.state = {
         squares : Array(9).fill(null),
-        xIsNext : true
+        xIsNext : true,
+        count : 0
       }
     }
     
@@ -29,11 +30,12 @@ function Square(props) {
       if (calculateWinner(squares) || squares[i]) {
         return;
       }
-  
+
 
       squares[i] = this.state.xIsNext ? 'X' : 'O'
       this.setState({squares: squares,
-      xIsNext: !this.state.xIsNext})
+      xIsNext: !this.state.xIsNext,
+      count : this.state.count +1 })
     }
 
     renderSquare(i) {
@@ -48,6 +50,8 @@ function Square(props) {
       {
         status = 'Winner '+winner
       }
+      else if(this.state.count === 9)
+      status = 'Game Over'
       else
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
   
